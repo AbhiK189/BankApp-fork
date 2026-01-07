@@ -2,7 +2,6 @@ import { Routes, Route, Link } from 'react-router-dom'
 import CustomerList from './pages/CustomerList'
 import CreateCustomer from './pages/CreateCustomer'
 import AccountDetails from './pages/AccountDetails'
-import TransactionHistory from './pages/TransactionHistory'
 
 function App() {
   return (
@@ -11,8 +10,7 @@ function App() {
         <ul>
           <li><Link to="/">Customers</Link></li>
           <li><Link to="/create-customer">Create Customer</Link></li>
-          <li><Link to="/account">Account Details</Link></li>
-          <li><Link to="/transactions">Transaction History</Link></li>
+          <li><Link to="/account">Accounts</Link></li>
         </ul>
       </nav>
       <div className="container">
@@ -20,7 +18,6 @@ function App() {
           <Route path="/" element={<CustomerList />} />
           <Route path="/create-customer" element={<CreateCustomer />} />
           <Route path="/account" element={<AccountDetails />} />
-          <Route path="/transactions" element={<TransactionHistory />} />
         </Routes>
       </div>
     </div>
