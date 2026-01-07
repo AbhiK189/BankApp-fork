@@ -30,6 +30,14 @@ public class AccountController {
 	@Autowired
 	private BankingServiceImpl bankingService;
 
+	@GetMapping(path = "/all")
+	@Operation(summary = "Get all accounts", description = "Get all accounts in the system")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Success"),
+			@ApiResponse(responseCode = "500", description = "Internal Server Error") })
+	public List<AccountInformation> getAllAccounts() {
+		return bankingService.findAllAccounts();
+	}
+
 	@GetMapping(path = "/{accountNumber}")
 	@Operation(summary = "Get account details", description = "Find account details by account number")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Success"),

@@ -13,6 +13,8 @@ public interface BankingService {
 
     public List<CustomerDetails> findAll();
     
+    public List<AccountInformation> findAllAccounts();
+    
     public ResponseEntity<Object> addCustomer(CustomerDetails customerDetails);
     
     public CustomerDetails findByCustomerNumber(Long customerNumber);

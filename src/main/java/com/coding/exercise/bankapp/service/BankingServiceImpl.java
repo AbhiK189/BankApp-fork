@@ -47,18 +47,31 @@ public class BankingServiceImpl implements BankingService {
     }
     
    
-    public List<CustomerDetails> findAll() {
+        public List<CustomerDetails> findAll() {
     	
-    	List<CustomerDetails> allCustomerDetails = new ArrayList<>();
+        	List<CustomerDetails> allCustomerDetails = new ArrayList<>();
 
-        Iterable<Customer> customerList = customerRepository.findAll();
+            Iterable<Customer> customerList = customerRepository.findAll();
 
-        customerList.forEach(customer -> {
-        	allCustomerDetails.add(bankingServiceHelper.convertToCustomerDomain(customer));
-        });
+            customerList.forEach(customer -> {
+            	allCustomerDetails.add(bankingServiceHelper.convertToCustomerDomain(customer));
+            });
         
-        return allCustomerDetails;
-    }
+            return allCustomerDetails;
+        }
+    
+        public List<AccountInformation> findAllAccounts() {
+    	
+        	List<AccountInformation> allAccountInfo = new ArrayList<>();
+
+            Iterable<Account> accountList = accountRepository.findAll();
+
+            accountList.forEach(account -> {
+            	allAccountInfo.add(bankingServiceHelper.convertToAccountDomain(account));
+            });
+        
+            return allAccountInfo;
+        }
 
     /**
      * CREATE Customer
